@@ -63,8 +63,8 @@ Shows a message when it's done.
     Use pyenv or Homebrew to ensure proper macOS framework support:
         Using pyenv (recommended)
    
-        pyenv install 3.10.2 --enable-framework
-        pyenv global 3.10.2
+       pyenv install 3.10.2 --enable-framework
+       pyenv global 3.10.2
 
     Or via Homebrew
    
@@ -72,10 +72,11 @@ Shows a message when it's done.
 
 3. Create a Virtual Environment
     Isolate dependencies:
-        python -m venv venv
-        source venv/bin/activate
+   
+       python -m venv venv
+       source venv/bin/activate
 
-4. Core Packages
+5. Core Packages
     Install required libraries:
    
         pip install tkinterdnd2 pillow pyobjc
