@@ -1,3 +1,5 @@
+Dance Scheduler
+
 Key Requirements: 
 
 1. Total music time per session/day: 1 hr = ~60 min. 
