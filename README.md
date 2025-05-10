@@ -1,4 +1,4 @@
-**Dance Scheduler**
+# Dance Scheduler
 
 Key Requirements: 
 
