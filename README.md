@@ -201,13 +201,13 @@ Shows a message when it's done.
         
    to ensure proper file permissions. 
    Alternatively, run: 
-    
+   
         chmod 644 *.py *.png *.icns
         
    to make all files accessible. 
 
-Manual Option: 
-    Clean and rebuild:
+   Manual Option: 
+      Clean and rebuild:
     
         rm -rf build dist
         pyinstaller \
@@ -239,7 +239,7 @@ Threading: Avoid threading for GUI updates; use Tkinter's after() method.
 macOS Permissions: Ensure your app has NSDocumentsFolderUsageDescription in Info.plist if accessing files.
 
 
-Issues Regarding macOS Monterey
+  Issues Regarding macOS Monterey
 
    Downgrade PyObjC
    
