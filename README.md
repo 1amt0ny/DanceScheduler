@@ -61,27 +61,31 @@ Shows a message when it's done.
 
 1. Install Python 3.10+
     Use pyenv or Homebrew to ensure proper macOS framework support:
-        # Using pyenv (recommended)
+        Using pyenv (recommended)
+   
         pyenv install 3.10.2 --enable-framework
         pyenv global 3.10.2
 
-        # Or via Homebrew
+    Or via Homebrew
+   
         brew install python@3.10
 
-2. Create a Virtual Environment
+3. Create a Virtual Environment
     Isolate dependencies:
         python -m venv venv
         source venv/bin/activate
 
-3. Core Packages
+4. Core Packages
     Install required libraries:
+   
         pip install tkinterdnd2 pillow pyobjc
 
-4. Development Tools
+6. Development Tools
     Install PyInstaller:
+   
         pip install pyinstaller
 
-5. Create .icns file
+7. Create .icns file
     i. Convert JPEG to PNG
 
       You can use Preview (built into macOS):
@@ -94,10 +98,12 @@ Shows a message when it's done.
 
     ii. Create Icon Set Folder
 
-      Open Terminal and do: 
+      Open Terminal and do:
+   
             mkdir icon.iconset
         
       Then, run this script to create all needed icon sizes:
+   
             sips -z 16 16     icon.png --out icon.iconset/icon_16x16.png
             sips -z 32 32     icon.png --out icon.iconset/icon_16x16@2x.png
             sips -z 32 32     icon.png --out icon.iconset/icon_32x32.png
@@ -108,14 +114,17 @@ Shows a message when it's done.
             sips -z 512 512   icon.png --out icon.iconset/icon_256x256@2x.png
             sips -z 512 512   icon.png --out icon.iconset/icon_512x512.png
             sips -z 1024 1024 icon.png --out icon.iconset/icon_512x512@2x.png
-        'Replace icon.png with your converted PNG filename.'
+
+      'Replace icon.png with your converted PNG filename.'
+   
     iii. Convert to .icns
-        run: 
-            iconutil -c icns icon.iconset
+        run:
+   
+            ```iconutil -c icns icon.iconset```
 
         This will generate icon.icns in the same folder.
 
-6. Prepare Project Structure
+9. Prepare Project Structure
     Ensure your directory contains:
         .
         ├── scheduler_app_drag_n_drop.py  # Main script
@@ -123,7 +132,7 @@ Shows a message when it's done.
         ├── app_icon.icns                # macOS icon
         └── app_icon.png                 # Fallback icon
 
-7. Build the App
+10. Build the App
     i. Run PyInstaller
         Use this command to bundle the app:
             pyinstaller \
@@ -140,7 +149,7 @@ Shows a message when it's done.
         For advanced control, create build.spec (template) and run:
             pyinstaller build.spec
 
-8. Test the App
+11. Test the App
     From Terminal (Debug Mode)
         dist/Dance_Scheduler.app/Contents/MacOS/Dance_Scheduler
     
@@ -152,7 +161,7 @@ Shows a message when it's done.
             Inspect logs in ~/dancescheduler_log.txt.
             Verify all files are bundled in Contents/Resources/.
 
-9. Distribute the App
+12. Distribute the App
     i. Code Signing (Mandatory for macOS)
     Sign the app to avoid Gatekeeper warnings:
         codesign --deep --force --verify --verbose --sign "Developer ID Application: Your Name (TEAMID)" dist/Dance_Scheduler.app
@@ -165,7 +174,7 @@ Shows a message when it's done.
     Required for macOS Catalina+:
        xcrun altool --notarize-app --primary-bundle-id "com.yourname.dancescheduler" --username "your_apple_id" --password "@keychain:AC_PASSWORD" --file Dance_Scheduler.dmg 
 
-10. Maintenance
+13. Maintenance
     i. Update dependencies
     Save them to requirements.txt:
         pip freeze > requirements.txt
@@ -196,7 +205,7 @@ Shows a message when it's done.
                     --osx-bundle-identifier "com.yourname.dancescheduler" \
                     scheduler_app_drag_n_drop.py 
 
-11. Final Directory Structure
+14. Final Directory Structure
     dance-scheduler/
     ├── build/                  # PyInstaller temp files
     ├── dist/                   # Final app bundle
