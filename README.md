@@ -84,20 +84,20 @@ Shows a message when it's done.
 5. Create .icns file
     i. Convert JPEG to PNG
 
-        You can use Preview (built into macOS):
+      You can use Preview (built into macOS):
 
-        Open your .jpg in Preview.
-        Go to File > Export.
-        Choose Format: PNG.
-        Make sure the image is square (e.g., crop to 1024×1024). If it’s not square, the icon will look stretched or cut off.
-        Optional: Use a tool like Photoshop, Pixelmator, or any image editor to crop it perfectly.
+      Open your .jpg in Preview.
+      Go to File > Export.
+      Choose Format: PNG.
+      Make sure the image is square (e.g., crop to 1024×1024). If it’s not square, the icon will look stretched or cut off.
+      Optional: Use a tool like Photoshop, Pixelmator, or any image editor to crop it perfectly.
 
     ii. Create Icon Set Folder
 
-        Open Terminal and do: 
+      Open Terminal and do: 
             mkdir icon.iconset
         
-        Then, run this script to create all needed icon sizes:
+      Then, run this script to create all needed icon sizes:
             sips -z 16 16     icon.png --out icon.iconset/icon_16x16.png
             sips -z 32 32     icon.png --out icon.iconset/icon_16x16@2x.png
             sips -z 32 32     icon.png --out icon.iconset/icon_32x32.png
