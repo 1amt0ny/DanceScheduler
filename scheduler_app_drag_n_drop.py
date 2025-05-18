@@ -155,14 +155,14 @@ def run_app():
     status_var = tk.StringVar()
     status_var.set("Drop a CSV file or click 'Select CSV File'")
 
-    label = tk.Label(root, text="🎵 Drag and drop your playlist CSV file below:", font=("Arial", 12), bg="white")
+    label = tk.Label(root, text="🎵 Drag and drop your playlist CSV file below: 💃🕺", font=("Arial", 12), bg="white", fg="black")
     label.pack(pady=10)
 
     drop_frame = tk.Frame(root, width=400, height=80, relief="ridge", bd=2, bg="#f0f0f0")
     drop_frame.pack(pady=10)
     drop_frame.pack_propagate(False)
 
-    drop_label = tk.Label(drop_frame, text="Drop your file here", bg="#f0f0f0")
+    drop_label = tk.Label(drop_frame, text="Drop your file here", bg="#f0f0f0", fg="black")
     drop_label.pack(expand=True)
 
     drop_frame.drop_target_register(DND_FILES)
