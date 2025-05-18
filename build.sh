@@ -13,7 +13,7 @@ rm -rf build dist "$APP_NAME.spec"
 
 # Install fresh dependencies
 echo "📦 Installing Sequoia-optimized dependencies..."
-pip install pyobjc==11.0 tkinterdnd2==0.4.3 pillow==10.3.0
+pip install pyinstaller pyobjc==11.0 tkinterdnd2==0.4.3 pillow==10.3.0
 
 
 echo "📦 Building macOS app with PyInstaller..."
@@ -23,6 +23,7 @@ pyinstaller \
     --hidden-import=Foundation \
     --hidden-import=tkinterdnd2 \
     --add-data="app_icon.png:." \
+    --add-data="scheduler.py:." \
     --name "$APP_NAME" \
     --osx-bundle-identifier "com.yourname.dancescheduler" \
     "$MAIN_SCRIPT"
