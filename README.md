@@ -58,10 +58,10 @@ Shows a message when it's done.
 
 
 
-### Step-by-Step: Package Python GUI as a Mac App ✅
+## Step-by-Step: Package Python GUI as a Mac App ✅
 
 
-1. Install Python 3.10+ (Python 3.12 is tested to be the latest stable ver. Do not use Python 3.13)
+### 1. Install Python 3.10+ (Python 3.12 is tested to be the latest stable ver. Do not use Python 3.13)
     Use pyenv or Homebrew to ensure proper macOS framework support:
 
    Using pyenv (recommended)
@@ -75,23 +75,23 @@ Shows a message when it's done.
    brew install python@3.10
    ```
 
-2. Create a Virtual Environment to isolate dependencies: 
+### 2. Create a Virtual Environment to isolate dependencies: 
    ```
    python -m venv venv
    source venv/bin/activate
    ```
 
-3. Core Packages
+### 3. Core Packages
    ```
    pip install tkinterdnd2 pillow pyobjc
    ```
 
-4. Development Tools (PyInstaller):
+### 4. Development Tools (PyInstaller):
    ```
    pip install pyinstaller
    ```
 
-5. Create ```.icns``` file:
+### 5. Create ```.icns``` file:
 
    i. Convert JPEG to PNG
 
@@ -133,7 +133,7 @@ Shows a message when it's done.
    ```
    This will generate icon.icns in the same folder.
 
-6. Prepare Project Structure:
+### 6. Prepare Project Structure:
 
    Ensure your directory contains:
    
@@ -145,7 +145,7 @@ Shows a message when it's done.
    
    └── app_icon.png                 # Fallback icon
 
-7. Build the App:
+### 7. Build the App:
    
    i. Run PyInstaller
 
@@ -170,7 +170,7 @@ Shows a message when it's done.
    pyinstaller build.spec
    ```
 
-8. Test the App: 
+### 8. Test the App: 
 
    From Terminal (Debug Mode)
    ```
@@ -188,80 +188,83 @@ Shows a message when it's done.
 
    ii. Verify all files are bundled in ```Contents/Resources/```.
 
-9. Distribute the App:
+### 9. Distribute the App:
     
-    i. Code Signing (Mandatory for macOS)
+i. Code Signing (Mandatory for macOS)
     
-    Sign the app to avoid Gatekeeper warnings:
-    ```
-    codesign --deep --force --verify --verbose --sign "Developer ID Application: Your Name (TEAMID)" dist/Dance_Scheduler.app
-    ```
+Sign the app to avoid Gatekeeper warnings:
 
-    ii. Create a DMG Installer
+```
+codesign --deep --force --verify --verbose --sign "Developer ID Application: Your Name (TEAMID)" dist/Dance_Scheduler.app
+```
+
+ii. Create a DMG Installer
     
-    Package for distribution:
-    ```
-    hdiutil create -volname "Dance Scheduler" -srcfolder dist/Dance_Scheduler.app -ov -format UDZO Dance_Scheduler.dmg
-    ```
+Package for distribution:
 
-    iii. Optional: Notarize (App Store)
+```
+hdiutil create -volname "Dance Scheduler" -srcfolder dist/Dance_Scheduler.app -ov -format UDZO Dance_Scheduler.dmg
+```
+
+iii. Optional: Notarize (App Store)
     
-    Required for macOS Catalina+:
-    ```
-    xcrun altool --notarize-app --primary-bundle-id "com.yourname.dancescheduler" --username "your_apple_id" --password "@keychain:AC_PASSWORD" --file Dance_Scheduler.dmg
-    ```
+Required for macOS Catalina+:
 
-10. Maintenance:
+```
+xcrun altool --notarize-app --primary-bundle-id "com.yourname.dancescheduler" --username "your_apple_id" --password "@keychain:AC_PASSWORD" --file Dance_Scheduler.dmg
+```
+
+### 10. Maintenance:
     
-    i. Update dependencies
+i. Update dependencies
 
-    Save them to ```requirements.txt```
-    ```
-    pip freeze > requirements.txt
-    ```
+Save them to ```requirements.txt```
+```
+pip freeze > requirements.txt
+```
 
-    📝 In the future, we can install dependencies by
-    ```
-    pip install -r requirements.txt
-    ```
+📝 In the future, we can install dependencies by
+```
+pip install -r requirements.txt
+```
 
-    ii. Rebuild after modifications
-    ```
-    ./build.sh
-    ```
+ii. Rebuild after modifications
+```
+./build.sh
+```
 
-    🚨 Note: when implementing ```build.sh```, run
-    ```
-    chmod +x build.sh
-    ```
-    to ensure proper file permissions. 
+🚨 Note: when implementing ```build.sh```, run
+```
+chmod +x build.sh
+```
+to ensure proper file permissions. 
 
-    Alternatively, run
-    ```
-    chmod 644 *.py *.png *.icns
-    ```
-    to make all files accessible. 
+Alternatively, run
+```
+chmod 644 *.py *.png *.icns
+```
+to make all files accessible. 
 
-    Manual Option: 
+Manual Option: 
 
-    Clean and rebuild
-    ```
-    rm -rf build dist
-    ```
-    ```
-    pyinstaller \
-        --windowed \
-        --icon=app_icon.icns \
-        --hidden-import=Foundation \
-        --hidden-import=tkinterdnd2 \
-        --add-data="app_icon.png:." \
-        --add-data="scheduler.py:." \
-        --name "Dance_Scheduler" \
-        --osx-bundle-identifier "com.yourname.dancescheduler" \
-        scheduler_app_drag_n_drop.py
-    ```
+Clean and rebuild
+```
+rm -rf build dist
+```
+```
+pyinstaller \
+    --windowed \
+    --icon=app_icon.icns \
+    --hidden-import=Foundation \
+    --hidden-import=tkinterdnd2 \
+    --add-data="app_icon.png:." \
+    --add-data="scheduler.py:." \
+    --name "Dance_Scheduler" \
+    --osx-bundle-identifier "com.yourname.dancescheduler" \
+    scheduler_app_drag_n_drop.py
+```
 
-11. Final Directory Structure
+### 11. Final Directory Structure
     
     dance-scheduler/
     
@@ -284,24 +287,24 @@ Shows a message when it's done.
     └── requirements.txt
     
 
-🔑 Key Notes
+### 🔑 Key Notes
 
-    Icons: Use ```.icns``` for macOS (512x512px, multiple resolutions).
+  Icons: Use ```.icns``` for macOS (512x512px, multiple resolutions).
     
-    Threading: Avoid threading for GUI updates; use Tkinter's ```after()``` method.
+  Threading: Avoid threading for GUI updates; use Tkinter's ```after()``` method.
     
-    macOS Permissions: Ensure your app has NSDocumentsFolderUsageDescription in ```Info.plist``` if accessing files.
+  macOS Permissions: Ensure your app has NSDocumentsFolderUsageDescription in ```Info.plist``` if accessing files.
 
 
-Issues Regarding macOS Monterey
+### Issues Regarding macOS Monterey
 
-    Downgrade PyObjC
+  Downgrade PyObjC
     ```
     pip uninstall pyobjc pyobjc-core
     pip install pyobjc==9.2    
     ```
 
-    Ensure tkinterdnd2 is Monterey-ready
+  Ensure tkinterdnd2 is Monterey-ready
     ```
     pip install --force-reinstall tkinterdnd2==0.3.0
     ```
