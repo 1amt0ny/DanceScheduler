@@ -14,13 +14,18 @@
 ## Design Approach 💡 : 
 
 1. Normalize familiarity ratings (custom mapping)
-    Scale (1-7) where: 
-        - 1 -> most familiar -> play 1x / week
-        - 7 -> least familiar -> play 7x / week
-    ''' desired_plays = familiarity_score '''
-        if max_freq = 7, then 
-            familiarity 1 -> 1 play
-            familiarity 7 -> 7 plays
+
+   Scale (1-7) where:
+   ```
+   - 1 -> most familiar -> play 1x / week
+    - 7 -> least familiar -> play 7x / week
+   ```
+   ```
+   desired_plays = familiarity_score
+       if max_freq = 7, then 
+           familiarity 1 -> 1 play
+           familiarity 7 -> 7 plays
+   ```
 ```
 | Familiarity | Plays/Week |
 | ----------- | ---------- |
