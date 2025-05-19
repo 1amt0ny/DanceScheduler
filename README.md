@@ -26,7 +26,7 @@
        familiarity 1 -> 1 play
        familiarity 7 -> 7 plays
    ```
-    ```
+
    | Familiarity | Plays/Week |
    | ----------- | ---------- |
    | 1           | 1          |
