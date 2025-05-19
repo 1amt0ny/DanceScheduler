@@ -129,9 +129,7 @@ Use pyenv or Homebrew to ensure proper macOS framework support:
    ```
    Replace ```icon.png``` with your converted PNG filename.
 
-   iii. Convert to ```.icns```
-
-   run: 
+   iii. Convert to ```.icns``` 
    ```
    iconutil -c icns icon.iconset
    ```
