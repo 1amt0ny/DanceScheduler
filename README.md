@@ -97,7 +97,7 @@ Use pyenv or Homebrew to ensure proper macOS framework support:
 
 ### 5. Create ```.icns``` file:
 
-   i. Convert JPEG to PNG
+   i. Convert ```JPEG``` to ```PNG```
 
    You can use Preview (built into macOS):
 
