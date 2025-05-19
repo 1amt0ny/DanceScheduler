@@ -218,7 +218,7 @@ Required for macOS Catalina+:
 xcrun altool --notarize-app --primary-bundle-id "com.yourname.dancescheduler" --username "your_apple_id" --password "@keychain:AC_PASSWORD" --file Dance_Scheduler.dmg
 ```
 
-### 10. Maintenance:
+### 10. Maintenance & Future Proofing:
     
 i. Update dependencies
 
