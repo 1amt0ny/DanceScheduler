@@ -358,6 +358,11 @@ If the `.app` runs fine from Terminal but crashes when opened via Finder:
 
 ### Icon Doesn’t Show Up
 * Ensure your `app_icon.icns` is placed in the project directory and referenced in the `pyinstaller` command.
+* Make sure you run `killall Finder` after building if you're testing the icon in `dist/`.
+
+### Drag and Drop Doesn't Work
+* Ensure `tkinterdnd2` is properly installed (`pip install tkinterdnd2`).
+* Not supported on Windows by default; you may need to use the "**Select File**" button instead.
 
 ### 🩺 Issues Regarding macOS Monterey
 
