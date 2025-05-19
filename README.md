@@ -245,7 +245,7 @@ chmod 644 *.py *.png *.icns
 ```
 to make all files accessible. 
 
-Manual Option: 
+iii. Manual Option: 
 
 Clean and rebuild
 ```
