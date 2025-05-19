@@ -76,7 +76,7 @@ Shows a message when it's done.
 ## Step-by-Step: Package Python GUI as a Mac App ✅ (Tested on Sequoia)
 
 
-### 1. Install Python 3.10+ (Python 3.12 is tested to be the latest stable ver. Do not use Python 3.13)
+### 1. Install Python 3.10+ (Python 3.12 is Highly Recommended. Do not use Python 3.13)
 
 There is compatibility issue between Pillow and Python 3.13 — which isn't officially supported by Pillow 10.3.0 yet. 
 
