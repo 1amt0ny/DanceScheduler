@@ -2,7 +2,7 @@
 # Dance Scheduler
 ## Key Requirements 📚: 
 
-1. Total music time per session/day: 1 hr = ~60 min. 
+1. Each session is approximately 60 minutes (1 hour) long (excluding idle time and intermittent breaks).  
 2. Avg song length: ~3 minutes -> 20 songs per session. 
 3. Weekly class schedule: 7 days -> 7 sessions. 
 4. Total songs: 40 unique songs. 
@@ -59,15 +59,7 @@ scheduler_app_drag_n_drop.py: main script
 ### Second Sort (Fill-In) Algorithm:
 ![Second Sort](second-sort.jpg)
 ### Results:
-Displays a simple window with instructions and a button.
-
-Lets the user pick a .csv file.
-
-Processes the file using your existing scheduler logic.
-
-Outputs a .txt file with the results.
-
-Shows a message when it's done.
+The application launches with a clean UI that supports drag-and-drop and local selection for CSV files. After processing, it outputs a text-based schedule summary, and allows users to export it as a `.txt` file.
 
 
 
@@ -76,7 +68,7 @@ Shows a message when it's done.
 ## Step-by-Step: Package Python GUI as a Mac App ✅ (Compatibility: Tested on macOS Sequoia, Intel & M4).
 
 
-### 1. Install Python 3.10+ (Python 3.12 is Highly Recommended. Do not use Python 3.13)
+### 1. Install Python 3.10+ (Python 3.12 is Highly Recommended):
 
 🚨 There is compatibility issue between Pillow and Python 3.13 — which isn't officially supported by Pillow 10.3.0 yet. Python 3.13 is still very new and many libraries haven't fully caught up, as of **May 2025**.
 
