@@ -44,6 +44,8 @@
 
   Methods examples: greedy heuristics, integer programming, or weighted round-robin scheduling with constraints. 
 
+  ![Greedy Sort](greedy-sort.jpg)
+
 ## Summary 🧠:
 
 scheduler.py: core logic (scheduling, song data)
