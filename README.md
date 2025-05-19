@@ -26,7 +26,7 @@
        familiarity 1 -> 1 play
        familiarity 7 -> 7 plays
    ```
-```
+    ```
 | Familiarity | Plays/Week |
 | ----------- | ---------- |
 | 1           | 1          |
@@ -36,7 +36,7 @@
 | 5           | 5          |
 | 6           | 6          |
 | 7           | 7          |
-```
+    ```
 
 2. Schedule generation algorithm (constraint satisfaction + optimization)
     - Try to distribute each song’s play count across the 7 days. 
