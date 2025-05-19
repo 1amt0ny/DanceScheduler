@@ -51,17 +51,21 @@ scheduler.py: core logic (scheduling, song data)
 scheduler_app_drag_n_drop.py: main script
 
 ## HIGH-LEVEL OVERVIEW 📌
-### Top-Level Structure
+### Top-Level Structure:
 ![Top-Level](top-level.jpg)
-### Greedy Sort Algorithm
+### Greedy Sort Algorithm:
 ![Greedy Sort](greedy-sort.jpg)
-### Second Sort (Fill-In) Algorithm
+### Second Sort (Fill-In) Algorithm:
 ![Second Sort](second-sort.jpg)
-
+### Results:
 Displays a simple window with instructions and a button.
+
 Lets the user pick a .csv file.
+
 Processes the file using your existing scheduler logic.
+
 Outputs a .txt file with the results.
+
 Shows a message when it's done.
 
 
