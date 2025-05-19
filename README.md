@@ -1,4 +1,5 @@
-Key Requirements: 
+# Dance Scheduler
+## Key Requirements: 
 
 1. Total music time per session/day: 1 hr = ~60 min. 
 2. Avg song length: ~3 minutes -> 20 songs per session. 
@@ -10,7 +11,7 @@ Key Requirements:
     iii. Familiarity rating influences frequency: 
         higher familiarity → fewer plays; lower familiarity → more plays
 
-💡 Design Approach: 
+## Design Approach 💡 : 
 
 1. Normalize familiarity ratings (custom mapping)
     Scale (1-7) where: 
@@ -39,13 +40,13 @@ Key Requirements:
 
   Methods examples: greedy heuristics, integer programming, or weighted round-robin scheduling with constraints. 
 
-🧠 Summary:
+## Summary 🧠:
 
 scheduler.py: core logic (scheduling, song data)
 
 scheduler_app_drag_n_drop.py: main script
 
-📌 HIGH-LEVEL OVERVIEW
+## HIGH-LEVEL OVERVIEW 📌
 
 Displays a simple window with instructions and a button.
 Lets the user pick a .csv file.
@@ -57,174 +58,252 @@ Shows a message when it's done.
 
 
 
-✅ Step-by-Step: Package Python GUI as a Mac App
+### Step-by-Step: Package Python GUI as a Mac App ✅
 
 
 1. Install Python 3.10+ (Python 3.12 is tested to be the latest stable ver. Do not use Python 3.13)
     Use pyenv or Homebrew to ensure proper macOS framework support:
-        # Using pyenv (recommended)
-        pyenv install 3.10.2 --enable-framework
-        pyenv global 3.10.2
 
-        # Or via Homebrew
-        brew install python@3.10
+   Using pyenv (recommended)
+   ```
+   pyenv install 3.10.2 --enable-framework
+   pyenv global 3.10.2
+   ```
 
-2. Create a Virtual Environment
-    Isolate dependencies:
-        python -m venv venv
-        source venv/bin/activate
+   Or via Homebrew
+   ```
+   brew install python@3.10
+   ```
+
+2. Create a Virtual Environment to isolate dependencies: 
+   ```
+   python -m venv venv
+   source venv/bin/activate
+   ```
 
 3. Core Packages
-    Install required libraries:
-        pip install tkinterdnd2 pillow pyobjc
+   ```
+   pip install tkinterdnd2 pillow pyobjc
+   ```
 
-4. Development Tools
-    Install PyInstaller:
-        pip install pyinstaller
+4. Development Tools (PyInstaller):
+   ```
+   pip install pyinstaller
+   ```
 
-5. Create .icns file
-    i. Convert JPEG to PNG
+5. Create ```.icns``` file:
 
-        You can use Preview (built into macOS):
+   i. Convert JPEG to PNG
 
-        Open your .jpg in Preview.
-        Go to File > Export.
-        Choose Format: PNG.
-        Make sure the image is square (e.g., crop to 1024×1024). If it’s not square, the icon will look stretched or cut off.
-        Optional: Use a tool like Photoshop, Pixelmator, or any image editor to crop it perfectly.
+   You can use Preview (built into macOS):
 
-    ii. Create Icon Set Folder
+   Open your ```.jpg``` in Preview.
+   Go to File > Export.
+   Choose Format: ```PNG```.
+   Make sure the image is square (e.g., crop to 1024×1024). If it’s not square, the icon will look stretched or cut off.
+   Optional: Use a tool like Photoshop, Pixelmator, or any image editor to crop it perfectly.
 
-        Open Terminal and do: 
-            mkdir icon.iconset
+   ii. Create Icon Set Folder
+
+   Open Terminal and do: 
+   ```
+   mkdir icon.iconset
+   ```
         
-        Then, run this script to create all needed icon sizes:
-            sips -z 16 16     icon.png --out icon.iconset/icon_16x16.png
-            sips -z 32 32     icon.png --out icon.iconset/icon_16x16@2x.png
-            sips -z 32 32     icon.png --out icon.iconset/icon_32x32.png
-            sips -z 64 64     icon.png --out icon.iconset/icon_32x32@2x.png
-            sips -z 128 128   icon.png --out icon.iconset/icon_128x128.png
-            sips -z 256 256   icon.png --out icon.iconset/icon_128x128@2x.png
-            sips -z 256 256   icon.png --out icon.iconset/icon_256x256.png
-            sips -z 512 512   icon.png --out icon.iconset/icon_256x256@2x.png
-            sips -z 512 512   icon.png --out icon.iconset/icon_512x512.png
-            sips -z 1024 1024 icon.png --out icon.iconset/icon_512x512@2x.png
-        'Replace icon.png with your converted PNG filename.'
-    iii. Convert to .icns
-        run: 
-            iconutil -c icns icon.iconset
+   Then, run this script to create all needed icon sizes:
+   ```
+   sips -z 16 16     icon.png --out icon.iconset/icon_16x16.png
+   sips -z 32 32     icon.png --out icon.iconset/icon_16x16@2x.png
+   sips -z 32 32     icon.png --out icon.iconset/icon_32x32.png
+   sips -z 64 64     icon.png --out icon.iconset/icon_32x32@2x.png
+   sips -z 128 128   icon.png --out icon.iconset/icon_128x128.png
+   sips -z 256 256   icon.png --out icon.iconset/icon_128x128@2x.png
+   sips -z 256 256   icon.png --out icon.iconset/icon_256x256.png
+   sips -z 512 512   icon.png --out icon.iconset/icon_256x256@2x.png
+   sips -z 512 512   icon.png --out icon.iconset/icon_512x512.png
+   sips -z 1024 1024 icon.png --out icon.iconset/icon_512x512@2x.png
+   ```
+   Replace ```icon.png``` with your converted PNG filename.
 
-        This will generate icon.icns in the same folder.
+   iii. Convert to ```.icns```
 
-6. Prepare Project Structure
-    Ensure your directory contains:
-        .
-        ├── scheduler_app_drag_n_drop.py  # Main script
-        ├── scheduler.py                 # Core logic
-        ├── app_icon.icns                # macOS icon
-        └── app_icon.png                 # Fallback icon
+   run: 
+   ```
+   iconutil -c icns icon.iconset
+   ```
+   This will generate icon.icns in the same folder.
 
-7. Build the App
-    i. Run PyInstaller
-        Use this command to bundle the app:
-            pyinstaller \
-                --windowed \
-                --icon=app_icon.icns \
-                --hidden-import=Foundation \
-                --hidden-import=tkinterdnd2 \
-                --add-data="app_icon.png:." \
-                --add-data="scheduler.py:." \
-                --name "Dance_Scheduler" \
-                --osx-bundle-identifier "com.yourname.dancescheduler" \
-                scheduler_app_drag_n_drop.py
+6. Prepare Project Structure:
 
-    ii. Alternative: Use a .spec File
-        For advanced control, create build.spec (template) and run:
-            pyinstaller build.spec
+   Ensure your directory contains:
+   
+   ├── scheduler_app_drag_n_drop.py  # Main script
+   
+   ├── scheduler.py                 # Core logic
+   
+   ├── app_icon.icns                # macOS icon
+   
+   └── app_icon.png                 # Fallback icon
 
-8. Test the App
-    From Terminal (Debug Mode)
-        dist/Dance_Scheduler.app/Contents/MacOS/Dance_Scheduler
+7. Build the App:
+   
+   i. Run PyInstaller
+
+   Use this command to bundle the app:
+   ```
+   pyinstaller \
+       --windowed \
+       --icon=app_icon.icns \
+       --hidden-import=Foundation \
+       --hidden-import=tkinterdnd2 \
+       --add-data="app_icon.png:." \
+       --add-data="scheduler.py:." \
+       --name "Dance_Scheduler" \
+       --osx-bundle-identifier "com.yourname.dancescheduler" \
+       scheduler_app_drag_n_drop.py
+   ```
+
+   ii. Alternative: Use a ```.spec``` File
+
+   For advanced control, create ```build.spec``` (template) and run:
+   ```
+   pyinstaller build.spec
+   ```
+
+8. Test the App: 
+
+   From Terminal (Debug Mode)
+   ```
+   dist/Dance_Scheduler.app/Contents/MacOS/Dance_Scheduler
+   ```
     
-    From Finder
-        Double-click dist/Dance_Scheduler.app.
+   From Finder, double-click
+   ```
+   dist/Dance_Scheduler.app
+   ```
 
-    Check for Errors
-        If the app crashes:
-            Inspect logs in ~/dancescheduler_log.txt.
-            Verify all files are bundled in Contents/Resources/.
+   Check for Errors. If the app crashes:
 
-9. Distribute the App
+   i. Inspect logs in ```~/dancescheduler_log.txt```.
+
+   ii. Verify all files are bundled in ```Contents/Resources/```.
+
+9. Distribute the App:
+    
     i. Code Signing (Mandatory for macOS)
+    
     Sign the app to avoid Gatekeeper warnings:
-        codesign --deep --force --verify --verbose --sign "Developer ID Application: Your Name (TEAMID)" dist/Dance_Scheduler.app
+    ```
+    codesign --deep --force --verify --verbose --sign "Developer ID Application: Your Name (TEAMID)" dist/Dance_Scheduler.app
+    ```
 
     ii. Create a DMG Installer
+    
     Package for distribution:
-        hdiutil create -volname "Dance Scheduler" -srcfolder dist/Dance_Scheduler.app -ov -format UDZO Dance_Scheduler.dmg
+    ```
+    hdiutil create -volname "Dance Scheduler" -srcfolder dist/Dance_Scheduler.app -ov -format UDZO Dance_Scheduler.dmg
+    ```
 
     iii. Optional: Notarize (App Store)
+    
     Required for macOS Catalina+:
-       xcrun altool --notarize-app --primary-bundle-id "com.yourname.dancescheduler" --username "your_apple_id" --password "@keychain:AC_PASSWORD" --file Dance_Scheduler.dmg 
+    ```
+    xcrun altool --notarize-app --primary-bundle-id "com.yourname.dancescheduler" --username "your_apple_id" --password "@keychain:AC_PASSWORD" --file Dance_Scheduler.dmg
+    ```
 
-10. Maintenance
+10. Maintenance:
+    
     i. Update dependencies
-    Save them to requirements.txt:
-        pip freeze > requirements.txt
 
-    📝 In the future, we can install dependencies by:
-        pip install -r requirements.txt
+    Save them to ```requirements.txt```
+    ```
+    pip freeze > requirements.txt
+    ```
+
+    📝 In the future, we can install dependencies by
+    ```
+    pip install -r requirements.txt
+    ```
 
     ii. Rebuild after modifications
-        ./build.sh
+    ```
+    ./build.sh
+    ```
 
-        🚨 Note: when implementing build.sh, run:
-            chmod +x build.sh
-        to ensure proper file permissions. 
-        Alternatively, run: 
-            chmod 644 *.py *.png *.icns
-        to make all files accessible. 
+    🚨 Note: when implementing ```build.sh```, run
+    ```
+    chmod +x build.sh
+    ```
+    to ensure proper file permissions. 
 
-        Manual Option: 
-            Clean and rebuild:
-                rm -rf build dist
-                pyinstaller \
-                    --windowed \
-                    --icon=app_icon.icns \
-                    --hidden-import=Foundation \
-                    --hidden-import=tkinterdnd2 \
-                    --add-data="app_icon.png:." \
-                    --add-data="scheduler.py:." \
-                    --name "Dance_Scheduler" \
-                    --osx-bundle-identifier "com.yourname.dancescheduler" \
-                    scheduler_app_drag_n_drop.py 
+    Alternatively, run
+    ```
+    chmod 644 *.py *.png *.icns
+    ```
+    to make all files accessible. 
+
+    Manual Option: 
+
+    Clean and rebuild
+    ```
+    rm -rf build dist
+    ```
+    ```
+    pyinstaller \
+        --windowed \
+        --icon=app_icon.icns \
+        --hidden-import=Foundation \
+        --hidden-import=tkinterdnd2 \
+        --add-data="app_icon.png:." \
+        --add-data="scheduler.py:." \
+        --name "Dance_Scheduler" \
+        --osx-bundle-identifier "com.yourname.dancescheduler" \
+        scheduler_app_drag_n_drop.py
+    ```
 
 11. Final Directory Structure
+    
     dance-scheduler/
+    
     ├── build/                  # PyInstaller temp files
+    
     ├── dist/                   # Final app bundle
-    │   └── Dance_Scheduler.app
+    
+    └── Dance_Scheduler.app
+    
     ├── venv/                   # Virtual environment
+    
     ├── scheduler_app_drag_n_drop.py
+    
     ├── scheduler.py
+    
     ├── app_icon.icns
+    
     ├── app_icon.png
+    
     └── requirements.txt
+    
 
 🔑 Key Notes
 
-    Icons: Use .icns for macOS (512x512px, multiple resolutions).
-    Threading: Avoid threading for GUI updates; use Tkinter's after() method.
-    macOS Permissions: Ensure your app has NSDocumentsFolderUsageDescription in Info.plist if accessing files.
+    Icons: Use ```.icns``` for macOS (512x512px, multiple resolutions).
+    
+    Threading: Avoid threading for GUI updates; use Tkinter's ```after()``` method.
+    
+    macOS Permissions: Ensure your app has NSDocumentsFolderUsageDescription in ```Info.plist``` if accessing files.
 
 
 Issues Regarding macOS Monterey
 
     Downgrade PyObjC
-        pip uninstall pyobjc pyobjc-core
-        pip install pyobjc==9.2    
+    ```
+    pip uninstall pyobjc pyobjc-core
+    pip install pyobjc==9.2    
+    ```
 
     Ensure tkinterdnd2 is Monterey-ready
-        pip install --force-reinstall tkinterdnd2==0.3.0
+    ```
+    pip install --force-reinstall tkinterdnd2==0.3.0
+    ```
 
     
