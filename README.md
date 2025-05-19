@@ -133,7 +133,7 @@ Use pyenv or Homebrew to ensure proper macOS framework support:
    ```
    iconutil -c icns icon.iconset
    ```
-   This will generate icon.icns in the same folder.
+   This will generate ```icon.icns``` in the same folder.
 
 ### 6. Prepare Project Structure:
 
