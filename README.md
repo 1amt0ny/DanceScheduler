@@ -51,8 +51,11 @@ scheduler.py: core logic (scheduling, song data)
 scheduler_app_drag_n_drop.py: main script
 
 ## HIGH-LEVEL OVERVIEW 📌
+### Top-Level Structure
 ![Top-Level](top-level.jpg)
+### Greedy Sort Algorithm
 ![Greedy Sort](greedy-sort.jpg)
+### Second Sort (Fill-In) Algorithm
 ![Second Sort](second-sort.jpg)
 
 Displays a simple window with instructions and a button.
