@@ -1,5 +1,5 @@
 # Dance Scheduler
-## Key Requirements: 
+## Key Requirements 📚: 
 
 1. Total music time per session/day: 1 hr = ~60 min. 
 2. Avg song length: ~3 minutes -> 20 songs per session. 
@@ -296,7 +296,7 @@ pyinstaller \
   macOS Permissions: Ensure your app has NSDocumentsFolderUsageDescription in ```Info.plist``` if accessing files.
 
 
-### Issues Regarding macOS Monterey
+### 🩺 Issues Regarding macOS Monterey
 
   Downgrade PyObjC
     ```
