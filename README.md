@@ -66,7 +66,7 @@ Shows a message when it's done.
 
 
 ### 1. Install Python 3.10+ (Python 3.12 is tested to be the latest stable ver. Do not use Python 3.13)
-    Use pyenv or Homebrew to ensure proper macOS framework support:
+Use pyenv or Homebrew to ensure proper macOS framework support:
 
    Using pyenv (recommended)
    ```
