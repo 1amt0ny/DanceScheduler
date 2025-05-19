@@ -343,15 +343,15 @@ pyinstaller \
 
 ### 🩺 Issues Regarding macOS Monterey
 
-  Downgrade PyObjC
-    ```
-    pip uninstall pyobjc pyobjc-core
-    pip install pyobjc==9.2    
-    ```
+Downgrade PyObjC
+```
+pip uninstall pyobjc pyobjc-core
+pip install pyobjc==9.2    
+```
 
-  Ensure tkinterdnd2 is Monterey-ready
-    ```
-    pip install --force-reinstall tkinterdnd2==0.3.0
-    ```
+Ensure tkinterdnd2 is Monterey-ready
+```
+pip install --force-reinstall tkinterdnd2==0.3.0
+```
 
     
