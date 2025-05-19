@@ -78,9 +78,7 @@ Shows a message when it's done.
 
 ### 1. Install Python 3.10+ (Python 3.12 is Highly Recommended. Do not use Python 3.13)
 
-There is compatibility issue between Pillow and Python 3.13 — which isn't officially supported by Pillow 10.3.0 yet. 
-
-Python 3.13 is still very new and many libraries haven't fully caught up, as of May 2025.
+🚨 There is compatibility issue between Pillow and Python 3.13 — which isn't officially supported by Pillow 10.3.0 yet. Python 3.13 is still very new and many libraries haven't fully caught up, as of **May 2025**.
 
 Use pyenv or Homebrew to ensure proper macOS framework support:
 
