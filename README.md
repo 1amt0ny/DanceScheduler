@@ -108,8 +108,6 @@ Use pyenv or Homebrew to ensure proper macOS framework support:
    Optional: Use a tool like Photoshop, Pixelmator, or any image editor to crop it perfectly.
 
    ii. Create Icon Set Folder
-
-   Open Terminal and do: 
    ```
    mkdir icon.iconset
    ```
