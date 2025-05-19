@@ -96,7 +96,7 @@ Use pyenv or Homebrew to ensure proper macOS framework support:
    pip install tkinterdnd2 pillow pyobjc
    ```
 
-### 4. Development Tools (PyInstaller):
+### 4. Development Tools (`PyInstaller`):
    ```
    pip install pyinstaller
    ```
@@ -153,7 +153,7 @@ Use pyenv or Homebrew to ensure proper macOS framework support:
 
 ### 7. Build the App:
    
-   i. Run PyInstaller
+   i. Run `PyInstaller`
 
    Use this command to bundle the app:
    ```
@@ -347,9 +347,21 @@ pyinstaller \
 
 If the `.app` runs fine from Terminal but crashes when opened via Finder:
 
+* ✅ Make sure the `--windowed` and `--hidden-import` options were correctly used with `pyinstaller`.
+* ✅ Add macOS-specific Tkinter configurations (like `tk::mac::useCompatibilityMenu`) in your Python script.
+* ✅ Check that `pyobjc` is installed and the `NSBundle` override is working.
+* 🧠 Launch from terminal using:
+  ```
+  dist/Dance\ Scheduler.app/Contents/MacOS/Dance\ Scheduler
+  ```
+  This can expose missing dependency issues in the console.
+
+### Icon Doesn’t Show Up
+* Ensure your `app_icon.icns` is placed in the project directory and referenced in the `pyinstaller` command.
+
 ### 🩺 Issues Regarding macOS Monterey
 
-Downgrade PyObjC
+Downgrade `PyObjC`
 ```
 pip uninstall pyobjc pyobjc-core
 pip install pyobjc==9.2    
