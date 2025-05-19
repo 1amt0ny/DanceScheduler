@@ -342,6 +342,10 @@ pyinstaller \
     
   macOS Permissions: Ensure your app has NSDocumentsFolderUsageDescription in ```Info.plist``` if accessing files.
 
+## Troubleshooting 🛠: 
+### App Won’t Launch from Finder
+
+If the `.app` runs fine from Terminal but crashes when opened via Finder:
 
 ### 🩺 Issues Regarding macOS Monterey
 
