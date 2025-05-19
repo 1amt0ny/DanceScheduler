@@ -36,7 +36,6 @@
 | 5           | 5          |
 | 6           | 6          |
 | 7           | 7          |
-    ```
 
 2. Schedule generation algorithm (constraint satisfaction + optimization)
     - Try to distribute each song’s play count across the 7 days. 
