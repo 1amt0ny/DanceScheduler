@@ -44,8 +44,6 @@
 
   Methods examples: greedy heuristics, integer programming, or weighted round-robin scheduling with constraints. 
 
-  ![Greedy Sort](greedy-sort.jpg)
-
 ## Summary 🧠:
 
 scheduler.py: core logic (scheduling, song data)
@@ -53,6 +51,9 @@ scheduler.py: core logic (scheduling, song data)
 scheduler_app_drag_n_drop.py: main script
 
 ## HIGH-LEVEL OVERVIEW 📌
+![Top-Level](top-level.jpg)
+![Greedy Sort](greedy-sort.jpg)
+![Second Sort](second-sort.jpg)
 
 Displays a simple window with instructions and a button.
 Lets the user pick a .csv file.
