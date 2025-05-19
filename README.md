@@ -38,12 +38,12 @@
    | 6           | 6          |
    | 7           | 7          |
 
-2. Schedule generation algorithm (constraint satisfaction + optimization)
+2. Schedule generation algorithm (Greedy Heuristic)
     - Try to distribute each song’s play count across the 7 days. 
     - Ensure no duplicates within a single day. 
     - Prioritize filling each day with ~20 songs, ~60 minutes total.
 
-  Methods examples: greedy heuristics, integer programming, or weighted round-robin scheduling with constraints. 
+  Alternative strategies like integer programming or weighted round-robin could be explored, but a greedy heuristic was sufficient here.
 
 ## Summary 🧠:
 
@@ -73,7 +73,7 @@ Shows a message when it's done.
 
 
 
-## Step-by-Step: Package Python GUI as a Mac App ✅ (Tested on Sequoia)
+## Step-by-Step: Package Python GUI as a Mac App ✅ (Compatibility: Tested on macOS Sequoia, Intel & M4).
 
 
 ### 1. Install Python 3.10+ (Python 3.12 is Highly Recommended. Do not use Python 3.13)
