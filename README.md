@@ -73,7 +73,7 @@ Shows a message when it's done.
 
 
 
-## Step-by-Step: Package Python GUI as a Mac App ✅
+## Step-by-Step: Package Python GUI as a Mac App ✅ (Tested on Sequoia)
 
 
 ### 1. Install Python 3.10+ (Python 3.12 is tested to be the latest stable ver. Do not use Python 3.13)
