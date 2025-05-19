@@ -17,8 +17,8 @@
 
    Scale (1-7) where:
    ```
-   - 1 -> most familiar -> play 1x / week
-    - 7 -> least familiar -> play 7x / week
+   1 -> most familiar -> play 1x / week
+   7 -> least familiar -> play 7x / week
    ```
    ```
    desired_plays = familiarity_score
