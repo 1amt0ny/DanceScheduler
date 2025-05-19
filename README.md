@@ -1,3 +1,4 @@
+![banner](banner.png)
 # Dance Scheduler
 ## Key Requirements 📚: 
 
