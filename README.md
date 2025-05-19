@@ -22,9 +22,9 @@
    ```
    ```
    desired_plays = familiarity_score
-       if max_freq = 7, then 
-           familiarity 1 -> 1 play
-           familiarity 7 -> 7 plays
+   if max_freq = 7, then 
+       familiarity 1 -> 1 play
+       familiarity 7 -> 7 plays
    ```
 ```
 | Familiarity | Plays/Week |
