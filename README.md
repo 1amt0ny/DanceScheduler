@@ -356,6 +356,50 @@ If the `.app` runs fine from Terminal but crashes when opened via Finder:
   ```
   This can expose missing dependency issues in the console.
 
+### Apple Silicon and Intel Compatibility
+1. Python Version 📝
+* `match` statements require **Python 3.10+**.
+* **⮕** Check with: `python --version`.
+* Some libraries (like Pillow) may not support Python 3.13 yet.
+**⮕** Use Python 3.11 or 3.12 for best compatibility.
+* Syntax errors during launch (e.g. `SyntaxError: invalid syntax`) are often due to:
+
+**⮕** Using new Python syntax but compiling with an older Python version.
+
+**⮕** Solution: Ensure you're building with the same Python version as your source expects.
+
+2. App Architecture 🧱
+* Use `file` to confirm the built app binary matches the target architecture:
+  ```
+  file dist/AppName.app/Contents/MacOS/AppName
+  ```
+**⮕** Output should be `arm64` for Apple Silicon, `x86_64` for Intel, or `universal`.
+
+3. Missing Modules After Build ⚙️
+
+If you see errors like: 
+```
+ModuleNotFoundError: No module named 'scheduler'
+```
+**⮕** Add the file/module explicitly in `pyinstaller` using `--add-data`:
+```
+--add-data="scheduler.py:."
+```
+
+4. Clean Old Builds 🧹
+
+Always clean before rebuilding to avoid stale artifacts: 
+```
+rm -rf build dist *.spec
+```
+
+5. Quarantine Bit on `.app`
+
+macOS may block the app unless you remove quarantine attributes:
+```
+xattr -rd com.apple.quarantine "dist/AppName.app"
+```
+
 ### Icon Doesn’t Show Up
 * Ensure your `app_icon.icns` is placed in the project directory and referenced in the `pyinstaller` command.
 * Make sure you run `killall Finder` after building if you're testing the icon in `dist/`.
