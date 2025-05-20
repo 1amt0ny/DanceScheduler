@@ -393,7 +393,7 @@ Always clean before rebuilding to avoid stale artifacts:
 rm -rf build dist *.spec
 ```
 
-5. Quarantine Bit on `.app`
+5. Quarantine Bit on `.app` 🚫
 
 macOS may block the app unless you remove quarantine attributes:
 ```
@@ -421,4 +421,7 @@ Ensure tkinterdnd2 is Monterey-ready
 pip install --force-reinstall tkinterdnd2==0.3.0
 ```
 
-    
+## ❤️ Built as a Mother's Day Gift ❤️
+
+This project was originally created to help my mom, a dance instructor, who used to spend hours each week manually planning song schedules. What started as a simple time-saver turned into a personal gift—and a fully functioning software. A great reminder that some of the most impactful engineering happens close to home.
+
