@@ -1,6 +1,6 @@
 ![banner](title_banner.png)
 # Dance Scheduler
-## Key Requirements 📚: 
+## Key Requirements: 
 
 1. Each session is approximately 60 minutes (1 hour) long (excluding idle time and intermittent breaks).  
 2. Avg song length: ~3 minutes -> 20 songs per session. 
@@ -12,7 +12,7 @@
     iii. Familiarity rating influences frequency: 
         higher familiarity → fewer plays; lower familiarity → more plays
 
-## Design Approach 💡 : 
+## Design Approach: 
 
 1. Normalize familiarity ratings (custom mapping)
 
@@ -45,13 +45,13 @@
 
   Alternative strategies like integer programming or weighted round-robin could be explored, but a greedy heuristic was sufficient here.
 
-## Summary 🧠:
+## Summary:
 
 scheduler.py: core logic (scheduling, song data)
 
 scheduler_app_drag_n_drop.py: main script
 
-## HIGH-LEVEL OVERVIEW 📌
+## HIGH-LEVEL OVERVIEW
 ### Top-Level Structure:
 ![Top-Level](top-level.jpg)
 ### Greedy Sort Algorithm:
@@ -65,12 +65,12 @@ The application launches with a clean UI that supports drag-and-drop and local s
 
 
 
-## Step-by-Step: Package Python GUI as a Mac App ✅ (Compatibility: Tested on macOS Sequoia, Intel & M4).
+## Step-by-Step: Package Python GUI as a Mac App (Compatibility: Tested on macOS Sequoia, Intel & M4).
 
 
 ### 1. Install Python 3.10+ (Python 3.12 is Highly Recommended):
 
-🚨 There is compatibility issue between Pillow and Python 3.13 — which isn't officially supported by Pillow 10.3.0 yet. Python 3.13 is still very new and many libraries haven't fully caught up, as of **May 2025**. For Python 3.10+, download and install from the official site https://www.python.org/downloads/. DO NOT install python with Homebrew, as Homebrew dropped support for building Python with tkinter baked in (via --with-tcl-tk) around Python 3.9+. 
+**IMPORTANT**: There is compatibility issue between Pillow and Python 3.13 — which isn't officially supported by Pillow 10.3.0 yet. Python 3.13 is still very new and many libraries haven't fully caught up, as of **May 2025**. For Python 3.10+, download and install from the official site https://www.python.org/downloads/. DO NOT install python with Homebrew, as Homebrew dropped support for building Python with tkinter baked in (via --with-tcl-tk) around Python 3.9+. 
 
 Use pyenv or Homebrew to ensure proper macOS framework support:
 
@@ -239,7 +239,7 @@ ii. Rebuild after modifications
 ./build.sh
 ```
 
-🚨 Note: when implementing ```build.sh```, run
+Note: when implementing ```build.sh```, run
 ```
 chmod +x build.sh
 ```
@@ -334,7 +334,7 @@ pyinstaller \
 | 36   | 梦回草原               | 4:30:00  | 1      |
 
 
-### 🔑 Key Notes
+### Key Notes
 
   Icons: Use ```.icns``` for macOS (512x512px, multiple resolutions).
     
@@ -342,22 +342,22 @@ pyinstaller \
     
   macOS Permissions: Ensure your app has NSDocumentsFolderUsageDescription in ```Info.plist``` if accessing files.
 
-## Troubleshooting 🛠: 
+## Troubleshooting: 
 ### App Won’t Launch from Finder
 
 If the `.app` runs fine from Terminal but crashes when opened via Finder:
 
-* ✅ Make sure the `--windowed` and `--hidden-import` options were correctly used with `pyinstaller`.
-* ✅ Add macOS-specific Tkinter configurations (like `tk::mac::useCompatibilityMenu`) in your Python script.
-* ✅ Check that `pyobjc` is installed and the `NSBundle` override is working.
-* 🧠 Launch from terminal using:
+* Make sure the `--windowed` and `--hidden-import` options were correctly used with `pyinstaller`.
+* Add macOS-specific Tkinter configurations (like `tk::mac::useCompatibilityMenu`) in your Python script.
+* Check that `pyobjc` is installed and the `NSBundle` override is working.
+* Launch from terminal using:
   ```
   dist/Dance\ Scheduler.app/Contents/MacOS/Dance\ Scheduler
   ```
   This can expose missing dependency issues in the console.
 
 ### Apple Silicon and Intel Compatibility
-1. Python Version 📝
+1. Python Version
 * `match` statements require **Python 3.10+**.
 * **⮕** Check with: `python --version`.
 * Some libraries (like Pillow) may not support Python 3.13 yet.
@@ -368,14 +368,14 @@ If the `.app` runs fine from Terminal but crashes when opened via Finder:
 
 **⮕** Solution: Ensure you're building with the same Python version as your source expects.
 
-2. App Architecture 🧱
+2. App Architecture
 * Use `file` to confirm the built app binary matches the target architecture:
   ```
   file dist/AppName.app/Contents/MacOS/AppName
   ```
 **⮕** Output should be `arm64` for Apple Silicon, `x86_64` for Intel, or `universal`.
 
-3. Missing Modules After Build ⚙️
+3. Missing Modules After Build
 
 If you see errors like: 
 ```
@@ -386,14 +386,14 @@ ModuleNotFoundError: No module named 'scheduler'
 --add-data="scheduler.py:."
 ```
 
-4. Clean Old Builds 🧹
+4. Clean Old Builds
 
 Always clean before rebuilding to avoid stale artifacts: 
 ```
 rm -rf build dist *.spec
 ```
 
-5. Quarantine Bit on `.app` 🚫
+5. Quarantine Bit on `.app`
 
 macOS may block the app unless you remove quarantine attributes:
 ```
@@ -408,7 +408,7 @@ xattr -rd com.apple.quarantine "dist/AppName.app"
 * Ensure `tkinterdnd2` is properly installed (`pip install tkinterdnd2`).
 * Not supported on Windows by default; you may need to use the "**Select File**" button instead.
 
-### 🩺 Issues Regarding macOS Monterey
+### Issues Regarding macOS Monterey
 
 Downgrade `PyObjC`
 ```
@@ -421,7 +421,7 @@ Ensure tkinterdnd2 is Monterey-ready
 pip install --force-reinstall tkinterdnd2==0.3.0
 ```
 
-## ❤️ Built as a Mother's Day Gift ❤️
+## Built as a Mother's Day Gift
 
 This project was originally created to help my mom, a dance instructor, who used to spend hours each week manually planning song schedules. What started as a simple time-saver turned into a personal gift—and a fully functioning software. A great reminder that some of the most impactful engineering happens close to home.
 
