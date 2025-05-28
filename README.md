@@ -61,34 +61,47 @@ scheduler_app_drag_n_drop.py: main script
 ### Results:
 The application launches with a clean UI that supports drag-and-drop and local selection for CSV files. After processing, it outputs a text-based schedule summary, and allows users to export it as a `.txt` file.
 
-
-
-
-
-## Step-by-Step: Package Python GUI as a Mac App (Compatibility: Tested on macOS Sequoia, Intel & M4).
-
+## Build the App (Compatibility: Tested on macOS Sequoia, Intel & M4).
 
 ### 1. Install Python 3.10+ (Python 3.12 is Highly Recommended):
 
 **IMPORTANT**: There is compatibility issue between `Pillow` and Python 3.13 — which isn't officially supported by Pillow 10.3.0 yet. Python 3.13 is still very new and many libraries haven't fully caught up, as of **May 2025**. For Python 3.10+, download and install from the official site https://www.python.org/downloads/. DO NOT install python with Homebrew, as Homebrew dropped support for building Python with `tkinter` baked in (via `--with-tcl-tk`) around Python 3.9+. 
 
-### 2. Create a Virtual Environment to Isolate Dependencies: 
+### 2. Use a Bash Terminal to Create a Virtual Environment to Isolate Dependencies: 
    ```
-   python3 -m venv venv
+   python3.10 -m venv venv
    source venv/bin/activate
    ```
 
-### 3. Core Packages
+### 3. Build the App: 
+
+Allow permission to run `build.sh`: 
+
+```
+chmod +x build.sh
+```
+
+Then, run `build.sh` script from the virtual environment to build the app. 
+
+```
+./build.sh
+```
+
+The app should be ready to use. Go ahead and launch it from `dist/Dance Scheduler.app`. 
+
+## (Optional) Step-by-Step to Package the Python GUI as a Mac App Manually
+
+### 1. Core Packages
    ```
    pip install tkinterdnd2 pillow pyobjc
    ```
 
-### 4. Development Tools (`PyInstaller`):
+### 2. Development Tools (`PyInstaller`):
    ```
    pip install pyinstaller
    ```
 
-### 5. Create ```.icns``` file:
+### 3. Create ```.icns``` file:
 
    i. Convert ```JPEG``` to ```PNG```
 
@@ -126,7 +139,7 @@ The application launches with a clean UI that supports drag-and-drop and local s
    ```
    This will generate ```icon.icns``` in the same folder.
 
-### 6. Prepare Project Structure:
+### 4. Prepare Project Structure:
 
    Ensure your directory contains:
    
@@ -138,7 +151,7 @@ The application launches with a clean UI that supports drag-and-drop and local s
    
    └── app_icon.png                 # Fallback icon
 
-### 7. Build the App:
+### 5. Build the App:
    
    i. Run `PyInstaller`
 
@@ -163,7 +176,7 @@ The application launches with a clean UI that supports drag-and-drop and local s
    pyinstaller build.spec
    ```
 
-### 8. Test the App: 
+### 6. Test the App: 
 
    From Terminal (Debug Mode)
    ```
@@ -181,7 +194,7 @@ The application launches with a clean UI that supports drag-and-drop and local s
 
    ii. Verify all files are bundled in ```Contents/Resources/```.
 
-### 9. Distribute the App:
+### 7. Distribute the App:
     
 i. Code Signing (Mandatory for macOS)
     
@@ -207,7 +220,7 @@ Required for macOS Catalina+:
 xcrun altool --notarize-app --primary-bundle-id "com.yourname.dancescheduler" --username "your_apple_id" --password "@keychain:AC_PASSWORD" --file Dance_Scheduler.dmg
 ```
 
-### 10. Maintenance & Future Proofing:
+### 8. Maintenance & Future Proofing:
     
 i. Update dependencies
 
@@ -216,7 +229,7 @@ Save them to ```requirements.txt```
 pip freeze > requirements.txt
 ```
 
-📝 In the future, we can install dependencies by
+In the future, we can install dependencies by
 ```
 pip install -r requirements.txt
 ```
@@ -257,7 +270,7 @@ pyinstaller \
     scheduler_app_drag_n_drop.py
 ```
 
-### 11. Final Directory Structure
+### 9. Final Directory Structure
     
     dance-scheduler/
     
