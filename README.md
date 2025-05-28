@@ -72,19 +72,6 @@ The application launches with a clean UI that supports drag-and-drop and local s
 
 **IMPORTANT**: There is compatibility issue between Pillow and Python 3.13 — which isn't officially supported by Pillow 10.3.0 yet. Python 3.13 is still very new and many libraries haven't fully caught up, as of **May 2025**. For Python 3.10+, download and install from the official site https://www.python.org/downloads/. DO NOT install python with Homebrew, as Homebrew dropped support for building Python with tkinter baked in (via --with-tcl-tk) around Python 3.9+. 
 
-Use pyenv or Homebrew to ensure proper macOS framework support:
-
-   Using pyenv (recommended)
-   ```
-   pyenv install 3.10.2 --enable-framework
-   pyenv global 3.10.2
-   ```
-
-   Or via Homebrew
-   ```
-   brew install python@3.10
-   ```
-
 ### 2. Create a Virtual Environment to Isolate Dependencies: 
    ```
    python3 -m venv venv
